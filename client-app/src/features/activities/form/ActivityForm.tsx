@@ -3,15 +3,13 @@ import React, { ChangeEvent, useState } from 'react';
 import { useEffect } from 'react';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import { Button, Form, Segment } from 'semantic-ui-react';
-import LoadingComponent from '../../../app/layout/LoadingComponent';
 import { useStore } from '../../../app/stores/store';
 import { v4 as uuid} from 'uuid';
 
 export default observer(function ActivityForm() {
     const history = useHistory();
     const {activityStore} = useStore();
-    const {createActivity, 
-        updateActivity, loading, loadActivity, loadingInitial} = activityStore;
+    const {createActivity, updateActivity, loading, loadActivity} = activityStore;
     const {id} = useParams<{id: string}>();
 
     const [activity, setActivity] = useState({
@@ -42,7 +40,7 @@ export default observer(function ActivityForm() {
 
     function handleInputChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
         const {name, value} = event.target;
-        setActivity({...activity, [name]: value})
+        setActivity({...activity, [name]: value});
     }
 
 
