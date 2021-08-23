@@ -1,10 +1,10 @@
 import React from 'react';
 import { Container } from 'semantic-ui-react';
 import NavBar from './NavBar';
+import ActivityDashBoard from '../../features/activities/dashboard/ActivityDashBoard';
 import { observer } from 'mobx-react-lite';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import HomePage from '../../features/home/homePage';
-import ActivityDashBoard from '../../features/activities/dashboard/ActivityDashBoard';
 import ActivityForm from '../../features/activities/form/ActivityForm';
 import ActivityDetails from '../../features/activities/details/ActivityDetails';
 import TestErrors from '../../features/errors/TestError';
@@ -17,14 +17,14 @@ function App() {
 
   return (
     <>
-        <ToastContainer position='bottom-right' hideProgressBar />
-        <Route exact path='/' component={HomePage} />
-        <Route 
+      <ToastContainer position='bottom-right' hideProgressBar />
+      <Route exact path='/' component={HomePage} />
+      <Route
         path={'/(.+)'}
         render={() => (
           <>
             <NavBar />
-            <Container style={{marginTop: '7em'}}>
+            <Container style={{ marginTop: '7em' }}>
               <Switch>
                 <Route exact path='/activities' component={ActivityDashBoard} />
                 <Route path='/activities/:id' component={ActivityDetails} />
@@ -36,7 +36,7 @@ function App() {
             </Container>
           </>
         )}
-        />
+      />
     </>
   );
 }
