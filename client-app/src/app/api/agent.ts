@@ -1,5 +1,4 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
-import { request } from 'http';
 import { toast } from 'react-toastify';
 import { history } from '../..';
 import { Activity, ActivityFormValues } from '../models/activity';
@@ -89,7 +88,10 @@ const Profiles = {
         return axios.post<Photo>('photos', formData, {
             headers: {'Content-type': 'multipart/form-data'}
         })
-    }
+    },
+    updateFollowing: (username: string) => requests.post(`/follow/${username}`, {}),
+    listFollowings: (username: string, predicate: string) => requests.get<Profile[]>(`/follow/${username}?predicate=${predicate}`)
+    
 }
 
 const agent = {
