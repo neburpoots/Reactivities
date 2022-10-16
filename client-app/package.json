@@ -44,9 +44,6 @@
     "eject": "react-scripts eject",
     "heroku-postbuild": "npm run build && mv build ../API/wwwroot"
   },
-  "engines": {
-    "node": "^12.20.17"
-  },
   "eslintConfig": {
     "extends": [
       "react-app",
