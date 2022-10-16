@@ -41,7 +41,7 @@
     "postbuild": "mv build ../API/wwwroot",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "mv build ../API/wwwroot"
   },
   "eslintConfig": {
     "extends": [
